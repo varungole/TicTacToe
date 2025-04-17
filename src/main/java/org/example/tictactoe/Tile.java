@@ -25,20 +25,12 @@ public class Tile extends StackPane {
         this.COL = COL;
     }
 
-    public boolean isEmpty() {
-        return text.getText().isEmpty();
-    }
-
     public void drawX() {
         text.setText("X");
     }
 
     public void drawO() {
         text.setText("O");
-    }
-
-    public String getValue() {
-        return text.getText();
     }
 
     public int getRow() {
