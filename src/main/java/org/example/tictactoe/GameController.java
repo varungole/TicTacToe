@@ -1,5 +1,7 @@
 package org.example.tictactoe;
 
+import javafx.scene.control.Alert;
+
 public class GameController {
 
     private final Board board;
@@ -9,9 +11,17 @@ public class GameController {
         this.board = board;
     }
 
+    private void showWinnerPopup(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Game Over");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.setWidth(5);
+        alert.showAndWait();
+    }
     private void printResult(int answer) {
-        if(answer == 1) System.out.println("X has won");
-        else if(answer == 0) System.out.println("Y has won");
+        if(answer == 1) showWinnerPopup("Player 1 has won the game");
+        else if(answer == 0)  showWinnerPopup("Player 2 has won the game");
     }
 
     public void handleMove(int row, int col, Tile tile) {
